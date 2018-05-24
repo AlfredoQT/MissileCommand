@@ -2,6 +2,8 @@
 
 #include "..\Public\Component.h"
 #include <vector>
+#include <typeinfo>
+#include "Debug.h"
 
 class World;
 class GameObjectHandle;
@@ -20,14 +22,16 @@ public:
 	void AddComponent(Component* pComponent);
 
 	template<class T>
-	T* FindComponent(ComponentType eType)
+	T* FindComponent()
 	{
+		int i = 0;
 		for (Component* pComponent : mComponents)
 		{
-			if (pComponent->GetType() == eType)
+			if (typeid(T).hash_code() == typeid(*pComponent).hash_code())
 			{
 				return (T*)pComponent;
 			}
+			++i;
 		}
 
 		return nullptr;

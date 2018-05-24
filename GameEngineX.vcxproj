@@ -147,6 +147,7 @@
     <ClInclude Include="Engine\Public\SDL.h" />
     <ClInclude Include="Game\Private\Game.h" />
     <ClInclude Include="Game\Public\COGPhysics.h" />
+    <ClInclude Include="Game\Public\COGTransform.h" />
     <ClInclude Include="Game\Public\Component.h" />
     <ClInclude Include="Game\Public\Debug.h" />
     <ClInclude Include="Game\Public\FMath.h" />
@@ -167,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Private\COGPhysics.cpp" />
+    <ClCompile Include="Game\Private\COGTransform.cpp" />
     <ClCompile Include="Game\Private\Component.cpp" />
     <ClCompile Include="Game\Private\Debug.cpp" />
     <ClCompile Include="Game\Private\Game.cpp" />

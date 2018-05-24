@@ -1,9 +1,11 @@
 #pragma once
 
-#include "Game\Public\Component.h"
+#include "Component.h"
+#include "Vector2.h"
 #include <vector>
 
 class GameObject;
+class COGTransform;
 
 class COGPhysics : public Component
 {
@@ -13,12 +15,16 @@ public:
 
 	COGPhysics(GameObject* pGO);
 
-	virtual ComponentType GetType() const override;
-
 	virtual void Initialize() override;
 
 	virtual void Destroy() override;
 
-	void Update();
+	void Update(float fDeltaT);
+
+private:
+
+	Vector2 mVelocity;
+
+	COGTransform* mTransform;
 
 };

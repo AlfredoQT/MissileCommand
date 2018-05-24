@@ -47,12 +47,18 @@ struct Vector2 : public exVector2
 		return vector;
 	}
 
+	// Addition
+	Vector2 operator+(const Vector2& other)
+	{
+		return Vector2(this->x + other.x, this->y + other.y);
+	}
+
 	// Allows vector subtraction
 	Vector2 operator-(const Vector2& other)
 	{
 		return Vector2(this->x - other.x, this->y - other.y);
 	}
-
+	
 	// I´ll be using this to calculate distances with the help of the subtraction operator
 	// I took a lot of ideas from UE4 Github repo
 	// I'll be using this in a lot of frames, that's why I decided not to use the Size method which uses sqrt

@@ -36,7 +36,7 @@ void World::Update(float fDeltaT)
 {
 	for (COGPhysics* physics : COGPhysics::mPhysicsComponents)
 	{
-		physics->Update();
+		physics->Update(fDeltaT);
 	}
 }
 

@@ -1,5 +1,6 @@
 #include "..\Public\COGPhysics.h"
-#include "Game\Public\Debug.h"
+#include "Game\Public\COGTransform.h"
+#include "Game\Public\GameObject.h"
 
 std::vector<COGPhysics*> COGPhysics::mPhysicsComponents;
 
@@ -8,13 +9,9 @@ COGPhysics::COGPhysics(GameObject * pGO)
 {
 }
 
-ComponentType COGPhysics::GetType() const
-{
-	return ComponentType::Physics;
-}
-
 void COGPhysics::Initialize()
 {
+	mTransform = mGO->FindComponent<COGTransform>();
 	AddToComponentVector(mPhysicsComponents);
 }
 
@@ -23,7 +20,10 @@ void COGPhysics::Destroy()
 	RemoveFromComponentVector(mPhysicsComponents);
 }
 
-void COGPhysics::Update()
+void COGPhysics::Update(float fDeltaT)
 {
-	Debug::exOutputLine(108);
+	// Update position
+	Vector2 currentPosition = mTransform->GetPosition();
+	Vector2 newPosition = currentPosition + mVelocity * fDeltaT;
+	mTransform->SetPosition(newPosition);
 }

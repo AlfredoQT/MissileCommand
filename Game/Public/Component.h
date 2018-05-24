@@ -3,13 +3,6 @@
 #include <vector>
 #include <algorithm>
 
-// all the different types of components
-enum class ComponentType : int
-{
-	Transform = 0,
-	Physics
-};
-
 class GameObject;
 
 // our base component class
@@ -18,8 +11,6 @@ class Component
 public:
 
 	Component(GameObject* pGO);
-
-	virtual ComponentType GetType() const = 0;
 
 	virtual void Initialize();
 	virtual void Destroy();
