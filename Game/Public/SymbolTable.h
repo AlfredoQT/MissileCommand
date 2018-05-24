@@ -57,7 +57,7 @@ public:
 			current = current->mNext;
 		}
 		// Not found
-		return NULL;
+		return 0;
 	}
 
 	// Insert something at the linked list, if the key already exists, update its value

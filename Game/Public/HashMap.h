@@ -1,7 +1,6 @@
 #pragma once
 
 #include "SymbolTable.h"
-#include "Debug.h"
 #include <functional>
 
 // Got the idea from a Quora answer for the list that stores key and value pairs in its nodes
@@ -24,7 +23,6 @@ public:
 	{
 		// Get the hash
 		std::size_t index = hash(pKey);
-		Debug::exOutputLine(index);
 		// Access the bucket and insert the value, it already does the checking
 		mBuckets[index].Put(pKey, pValue);
 	}
@@ -33,7 +31,6 @@ public:
 	{
 		// Hash the key
 		std::size_t index = hash(pKey);
-		Debug::exOutputLine(index);
 		// Get the value for that key in that bucket
 		return mBuckets[index].Get(pKey);
 	}
@@ -42,7 +39,6 @@ public:
 	{
 		// Hash the key
 		std::size_t index = hash(pKey);
-		Debug::exOutputLine(index);
 		// Delete the key in that symbol table
 		mBuckets[index].Remove(pKey);
 	}
@@ -50,7 +46,7 @@ public:
 	bool Contains(K pKey)
 	{
 		// Just look it up
-		return Get(pKey) != NULL;
+		return Get(pKey) != 0;
 	}
 
 private:

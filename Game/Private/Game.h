@@ -11,7 +11,7 @@
 #include "Game\Public\Singleton.h"
 #include <vector>
 
-class COGScorer;
+class World;
 
 //-----------------------------------------------------------------
 //-----------------------------------------------------------------
@@ -35,14 +35,7 @@ public:
 
 private:
 
-	class World* mWorld;
-
-	// Scores
-	COGScorer* mLeftScorer;
-	COGScorer* mRightScorer;
-
-	// To draw some simple UI
-	void DrawUI() const;
+	World* mWorld;
 
 	// Font
 	int mFontID;

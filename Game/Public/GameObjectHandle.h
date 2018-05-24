@@ -1,12 +1,20 @@
 #pragma once
 
+#include <cstddef>
+
 class GameObject;
 
-// Handle for a game object
 class GameObjectHandle
 {
 public:
 
-	
+	GameObjectHandle(std::size_t pHash);
 
+	bool IsValid();
+
+	GameObject* Get();
+
+private:
+
+	std::size_t mHash;
 };

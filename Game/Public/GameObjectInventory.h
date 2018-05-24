@@ -1,11 +1,12 @@
 #pragma once
 
 #include "HashMap.h"
+#include "Singleton.h"
 
 class GameObject;
 
 // Provides access to game objects in a hash map
-class GameObjectInventory
+class GameObjectInventory : public Singleton<GameObjectInventory>
 {
 public:
 
@@ -13,7 +14,7 @@ public:
 
 	void UnRegister(GameObject* pGO);
 
-	bool Exists(GameObject* pGO);
+	bool Exists(std::size_t pHash);
 
 	GameObject* Lookup(std::size_t pHash);
 

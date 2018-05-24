@@ -115,6 +115,9 @@
     <ClInclude Include="Game\Public\HashMap.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Public\GameObjectInventory.h">
+      <Filter>Source Files\Game\Public</Filter>
+    </ClInclude>
     <ClInclude Include="Game\Public\GameObjectHandle.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
@@ -187,6 +190,12 @@
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
     <ClCompile Include="Game\Private\GameObjectFactory.cpp">
+      <Filter>Source Files\Game\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Private\GameObjectInventory.cpp">
+      <Filter>Source Files\Game\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Private\GameObjectHandle.cpp">
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
   </ItemGroup>

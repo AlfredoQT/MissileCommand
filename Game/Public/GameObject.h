@@ -4,6 +4,7 @@
 #include <vector>
 
 class World;
+class GameObjectHandle;
 
 // our game object, it's just a collection of components - that's it!
 class GameObject
@@ -35,6 +36,8 @@ public:
 	World* GetWorld() const;
 
 	std::size_t GetHash();
+
+	GameObjectHandle GetHandle() const;
 
 private:
 	std::vector<Component*> mComponents;

@@ -165,6 +165,7 @@
     <ClInclude Include="Game\Public\GameObject.h" />
     <ClInclude Include="Game\Public\GameObjectFactory.h" />
     <ClInclude Include="Game\Public\GameObjectHandle.h" />
+    <ClInclude Include="Game\Public\GameObjectInventory.h" />
     <ClInclude Include="Game\Public\HashMap.h" />
     <ClInclude Include="Game\Public\Input.h" />
     <ClInclude Include="Game\Public\InputManager.h" />
@@ -193,6 +194,8 @@
     <ClCompile Include="Game\Private\Game.cpp" />
     <ClCompile Include="Game\Private\GameObject.cpp" />
     <ClCompile Include="Game\Private\GameObjectFactory.cpp" />
+    <ClCompile Include="Game\Private\GameObjectHandle.cpp" />
+    <ClCompile Include="Game\Private\GameObjectInventory.cpp" />
     <ClCompile Include="Game\Private\Input.cpp" />
     <ClCompile Include="Game\Private\InputManager.cpp" />
     <ClCompile Include="Game\Private\IPhysicsCollisionEvent.cpp" />

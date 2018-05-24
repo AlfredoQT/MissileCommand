@@ -1,10 +1,14 @@
 #include "..\Public\GameObject.h"
 #include "Game\Public\World.h"
+#include "Game\Public\GameObjectInventory.h"
+#include "Game\Public\GameObjectHandle.h"
 
 GameObject::GameObject(World* pWorld, std::size_t pHash)
 {
 	mWorld = pWorld;
 	mHash = pHash;
+
+	GameObjectInventory::Instance()->Register(this);
 }
 
 GameObject::~GameObject()
@@ -15,6 +19,8 @@ GameObject::~GameObject()
 
 		delete pComponent;
 	}
+	
+	GameObjectInventory::Instance()->UnRegister(this);
 }
 
 void GameObject::Initialize()
@@ -38,4 +44,9 @@ World * GameObject::GetWorld() const
 std::size_t GameObject::GetHash()
 {
 	return mHash;
+}
+
+GameObjectHandle GameObject::GetHandle() const
+{
+	return GameObjectHandle(mHash);
 }
