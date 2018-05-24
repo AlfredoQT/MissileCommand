@@ -1,9 +1,10 @@
 #include "..\Public\GameObject.h"
 #include "Game\Public\World.h"
 
-GameObject::GameObject(World* pWorld)
+GameObject::GameObject(World* pWorld, std::size_t pHash)
 {
 	mWorld = pWorld;
+	mHash = pHash;
 }
 
 GameObject::~GameObject()
@@ -32,4 +33,9 @@ void GameObject::AddComponent(Component * pComponent)
 World * GameObject::GetWorld() const
 {
 	return mWorld;
+}
+
+std::size_t GameObject::GetHash()
+{
+	return mHash;
 }

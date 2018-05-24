@@ -10,7 +10,7 @@ class GameObject
 {
 public:
 	
-	GameObject(World* pWorld);
+	GameObject(World* pWorld, std::size_t pHash);
 
 	~GameObject();
 
@@ -34,9 +34,13 @@ public:
 
 	World* GetWorld() const;
 
+	std::size_t GetHash();
+
 private:
 	std::vector<Component*> mComponents;
 
 	World* mWorld;
+
+	std::size_t mHash;
 
 };

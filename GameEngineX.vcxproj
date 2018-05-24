@@ -164,6 +164,7 @@
     <ClInclude Include="Game\Public\GameInterface.h" />
     <ClInclude Include="Game\Public\GameObject.h" />
     <ClInclude Include="Game\Public\GameObjectFactory.h" />
+    <ClInclude Include="Game\Public\GameObjectHandle.h" />
     <ClInclude Include="Game\Public\HashMap.h" />
     <ClInclude Include="Game\Public\Input.h" />
     <ClInclude Include="Game\Public\InputManager.h" />

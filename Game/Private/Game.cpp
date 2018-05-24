@@ -20,6 +20,7 @@
 #include "Game\Public\COGTransform.h"
 #include "Game\Public\Random.h"
 #include "Game\Public\SymbolTable.h"
+#include "Game\Public\HashMap.h"
 #include <string>
 
 // Game singleton
@@ -89,6 +90,12 @@ void MyGame::Initialize(exEngineInterface* pEngine)
 	Debug::exOutputLine(ST.Get("Hello"));
 	ST.Put("Hello", 14.0f);
 	Debug::exOutputLine(ST.Get("Hello"));
+
+	HashMap<std::string, float, 256> hM;
+	hM.Put("World", 77.0f);
+	Debug::exOutputLine(hM.Get("World"));
+	hM.Remove("World");
+	Debug::exOutputLine(hM.Get("World"));
 }
 
 //-----------------------------------------------------------------
