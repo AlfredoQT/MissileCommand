@@ -146,6 +146,7 @@
     <ClInclude Include="Engine\Public\EngineTypes.h" />
     <ClInclude Include="Engine\Public\SDL.h" />
     <ClInclude Include="Game\Private\Game.h" />
+    <ClInclude Include="Game\Public\COGPhysics.h" />
     <ClInclude Include="Game\Public\Component.h" />
     <ClInclude Include="Game\Public\Debug.h" />
     <ClInclude Include="Game\Public\FMath.h" />
@@ -157,6 +158,7 @@
     <ClInclude Include="Game\Public\HashMap.h" />
     <ClInclude Include="Game\Public\Input.h" />
     <ClInclude Include="Game\Public\InputManager.h" />
+    <ClInclude Include="Game\Public\IPhysicsCollisionEvent.h" />
     <ClInclude Include="Game\Public\Random.h" />
     <ClInclude Include="Game\Public\Singleton.h" />
     <ClInclude Include="Game\Public\SymbolTable.h" />
@@ -164,6 +166,7 @@
     <ClInclude Include="Game\Public\World.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Private\COGPhysics.cpp" />
     <ClCompile Include="Game\Private\Component.cpp" />
     <ClCompile Include="Game\Private\Debug.cpp" />
     <ClCompile Include="Game\Private\Game.cpp" />

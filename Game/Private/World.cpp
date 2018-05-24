@@ -1,6 +1,7 @@
 #include "..\Public\World.h"
 #include "..\Public\GameObject.h"
 #include "Game\Public\GameObjectHandle.h"
+#include "Game\Public\COGPhysics.h"
 
 World::World(exEngineInterface* pEngine)
 {
@@ -33,6 +34,10 @@ void World::Destroy()
 
 void World::Update(float fDeltaT)
 {
+	for (COGPhysics* physics : COGPhysics::mPhysicsComponents)
+	{
+		physics->Update();
+	}
 }
 
 void World::Add(GameObjectHandle pHandle)

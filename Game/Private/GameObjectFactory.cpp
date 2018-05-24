@@ -2,6 +2,7 @@
 #include "Game\Public\GameObject.h"
 #include "Game\Public\World.h"
 #include "Game\Public\GameObjectHandle.h"
+#include "Game\Public\COGPhysics.h"
 #include <string>
 
 // Singleton
@@ -17,6 +18,7 @@ GameObjectFactory::GameObjectFactory()
 void GameObjectFactory::CreateMissile(World* pWorld)
 {
 	GameObject* missile = new GameObject(pWorld, std::hash<std::string>{}("Missile-" + mNextMissile));
+	missile->AddComponent(new COGPhysics(missile));
 
 	pWorld->Add(missile->GetHandle());
 

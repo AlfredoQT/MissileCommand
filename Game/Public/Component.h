@@ -7,15 +7,7 @@
 enum class ComponentType : int
 {
 	Transform = 0,
-	Physics,
-	BoxShape,
-	CircleShape,
-	Bounce,
-	Reset,
-	Scorer,
-	PaddleController,
-	PlayerController,
-	AIController
+	Physics
 };
 
 class GameObject;
@@ -36,6 +28,7 @@ public:
 
 protected:
 
+	// I get it as a reference and push back onto it
 	template<class T>
 	void AddToComponentVector(std::vector<T*>& componentVector)
 	{

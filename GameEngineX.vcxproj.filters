@@ -82,6 +82,12 @@
     <ClInclude Include="Game\Public\GameObjectHandle.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Public\COGPhysics.h">
+      <Filter>Source Files\Game\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Public\IPhysicsCollisionEvent.h">
+      <Filter>Source Files\Game\Public</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Private\Main.cpp">
@@ -118,6 +124,9 @@
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
     <ClCompile Include="Game\Private\GameObjectHandle.cpp">
+      <Filter>Source Files\Game\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Private\COGPhysics.cpp">
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
   </ItemGroup>
