@@ -4,6 +4,7 @@
 #include <vector>
 
 class GameObject;
+class GameObjectHandle;
 
 // the world, it contains all of our game objects and defines the order of updates
 class World
@@ -18,13 +19,13 @@ public:
 
 	void Update(float fDeltaT);
 
-	void Add(GameObject* pGO);
+	void Add(GameObjectHandle pHandle);
 
 	exEngineInterface* Engine() const;
 
 private:
 
-	std::vector<GameObject*> mGameObjects;
+	std::vector<GameObjectHandle> mHandles;
 
 	exEngineInterface* mEngine;
 

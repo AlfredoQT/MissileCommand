@@ -146,19 +146,7 @@
     <ClInclude Include="Engine\Public\EngineTypes.h" />
     <ClInclude Include="Engine\Public\SDL.h" />
     <ClInclude Include="Game\Private\Game.h" />
-    <ClInclude Include="Game\Public\COGAIController.h" />
-    <ClInclude Include="Game\Public\COGBounce.h" />
-    <ClInclude Include="Game\Public\COGBoxShape.h" />
-    <ClInclude Include="Game\Public\COGCircleShape.h" />
-    <ClInclude Include="Game\Public\COGPaddleController.h" />
-    <ClInclude Include="Game\Public\COGPhysics.h" />
-    <ClInclude Include="Game\Public\COGPlayerController.h" />
-    <ClInclude Include="Game\Public\COGReset.h" />
-    <ClInclude Include="Game\Public\COGScorer.h" />
-    <ClInclude Include="Game\Public\COGShape.h" />
-    <ClInclude Include="Game\Public\COGTransform.h" />
     <ClInclude Include="Game\Public\Component.h" />
-    <ClInclude Include="Game\Public\Crossfade.h" />
     <ClInclude Include="Game\Public\Debug.h" />
     <ClInclude Include="Game\Public\FMath.h" />
     <ClInclude Include="Game\Public\GameInterface.h" />
@@ -169,7 +157,6 @@
     <ClInclude Include="Game\Public\HashMap.h" />
     <ClInclude Include="Game\Public\Input.h" />
     <ClInclude Include="Game\Public\InputManager.h" />
-    <ClInclude Include="Game\Public\IPhysicsCollisionEvent.h" />
     <ClInclude Include="Game\Public\Random.h" />
     <ClInclude Include="Game\Public\Singleton.h" />
     <ClInclude Include="Game\Public\SymbolTable.h" />
@@ -177,19 +164,7 @@
     <ClInclude Include="Game\Public\World.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game\Private\COGAIController.cpp" />
-    <ClCompile Include="Game\Private\COGBounce.cpp" />
-    <ClCompile Include="Game\Private\COGBoxShape.cpp" />
-    <ClCompile Include="Game\Private\COGCircleShape.cpp" />
-    <ClCompile Include="Game\Private\COGPaddleController.cpp" />
-    <ClCompile Include="Game\Private\COGPhysics.cpp" />
-    <ClCompile Include="Game\Private\COGPlayerController.cpp" />
-    <ClCompile Include="Game\Private\COGReset.cpp" />
-    <ClCompile Include="Game\Private\COGScorer.cpp" />
-    <ClCompile Include="Game\Private\COGShape.cpp" />
-    <ClCompile Include="Game\Private\COGTransform.cpp" />
     <ClCompile Include="Game\Private\Component.cpp" />
-    <ClCompile Include="Game\Private\Crossfade.cpp" />
     <ClCompile Include="Game\Private\Debug.cpp" />
     <ClCompile Include="Game\Private\Game.cpp" />
     <ClCompile Include="Game\Private\GameObject.cpp" />
@@ -198,7 +173,6 @@
     <ClCompile Include="Game\Private\GameObjectInventory.cpp" />
     <ClCompile Include="Game\Private\Input.cpp" />
     <ClCompile Include="Game\Private\InputManager.cpp" />
-    <ClCompile Include="Game\Private\IPhysicsCollisionEvent.cpp" />
     <ClCompile Include="Game\Private\Main.cpp" />
     <ClCompile Include="Game\Private\Random.cpp" />
     <ClCompile Include="Game\Private\World.cpp" />

@@ -58,52 +58,13 @@
     <ClInclude Include="Game\Public\Random.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Public\Crossfade.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Public\Component.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGBounce.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGBoxShape.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGCircleShape.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGPhysics.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGShape.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGTransform.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\IPhysicsCollisionEvent.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
     <ClInclude Include="Game\Public\World.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Public\COGPlayerController.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Public\FMath.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGReset.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGScorer.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGAIController.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGPaddleController.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
     <ClInclude Include="Game\Public\GameObjectFactory.h">
@@ -144,49 +105,10 @@
     <ClCompile Include="Game\Private\Random.cpp">
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Private\Crossfade.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Private\Component.cpp">
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Private\COGBounce.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGBoxShape.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGCircleShape.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGPhysics.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGShape.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGTransform.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\IPhysicsCollisionEvent.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Private\World.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGPlayerController.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGReset.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGScorer.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGAIController.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGPaddleController.cpp">
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
     <ClCompile Include="Game\Private\GameObjectFactory.cpp">

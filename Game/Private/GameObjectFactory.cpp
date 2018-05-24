@@ -1,16 +1,24 @@
 #include "..\Public\GameObjectFactory.h"
 #include "Game\Public\GameObject.h"
-#include "Game\Public\Vector2.h"
-#include "Game\Public\COGPhysics.h"
-#include "Game\Public\COGTransform.h"
-#include "Game\Public\COGBoxShape.h"
-#include "Game\Public\COGCircleShape.h"
-#include "Game\Public\COGAIController.h"
-#include "Game\Public\COGPlayerController.h"
-#include "Game\Public\COGBounce.h"
-#include "Game\Public\COGReset.h"
-#include "Game\Public\COGScorer.h"
 #include "Game\Public\World.h"
+#include "Game\Public\GameObjectHandle.h"
+#include <string>
 
 // Singleton
 GameObjectFactory* Singleton<GameObjectFactory>::mSingleton = nullptr;
+
+GameObjectFactory::GameObjectFactory()
+	: mNextMissile(0)
+	, mNextCity(0)
+	, mNextExplosion(0)
+{
+}
+
+void GameObjectFactory::CreateMissile(World* pWorld)
+{
+	GameObject* missile = new GameObject(pWorld, std::hash<std::string>{}("Missile-" + mNextMissile));
+
+	pWorld->Add(missile->GetHandle());
+
+	++mNextMissile;
+}

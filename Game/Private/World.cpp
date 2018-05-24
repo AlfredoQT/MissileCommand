@@ -1,8 +1,6 @@
 #include "..\Public\World.h"
 #include "..\Public\GameObject.h"
-#include "..\Public\COGShape.h"
-#include "..\Public\COGPhysics.h"
-#include "Game\Public\COGPaddleController.h"
+#include "Game\Public\GameObjectHandle.h"
 
 World::World(exEngineInterface* pEngine)
 {
@@ -11,46 +9,35 @@ World::World(exEngineInterface* pEngine)
 
 void World::Initialize()
 {
-	for (GameObject* pGameObject : mGameObjects)
+	for (GameObjectHandle handle : mHandles)
 	{
-		pGameObject->Initialize();
+		if (handle.IsValid())
+		{
+			handle.Get()->Initialize();
+		}
 	}
 }
 
 void World::Destroy()
 {
-	for (GameObject* pGameObject : mGameObjects)
+	for (GameObjectHandle handle : mHandles)
 	{
-		delete pGameObject;
+		if (handle.IsValid())
+		{
+			delete handle.Get();
+		}
 	}
 
-	mGameObjects.clear();
+	mHandles.clear();
 }
 
 void World::Update(float fDeltaT)
 {
-	// run simulation first
-	for (COGPhysics* pPhysics : COGPhysics::mPhysicsComponents)
-	{
-		pPhysics->Update(fDeltaT);
-	}
-
-	// then render everything
-	for (COGShape* pShape : COGShape::mShapeComponents)
-	{
-		pShape->Render();
-	}
-
-	// Controllers
-	for (COGPaddleController* pC : COGPaddleController::mPaddleControllerComponents)
-	{
-		pC->Update(fDeltaT);
-	}
 }
 
-void World::Add(GameObject * pGO)
+void World::Add(GameObjectHandle pHandle)
 {
-	mGameObjects.push_back(pGO);
+	mHandles.push_back(pHandle);
 }
 
 exEngineInterface * World::Engine() const

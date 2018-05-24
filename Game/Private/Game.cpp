@@ -17,6 +17,7 @@
 #include "Game\Public\SymbolTable.h"
 #include "Game\Public\HashMap.h"
 #include "Game\Public\GameObjectHandle.h"
+#include "Game\Public\GameObjectInventory.h"
 #include <string>
 
 // Game singleton
@@ -83,6 +84,8 @@ void MyGame::Initialize(exEngineInterface* pEngine)
 	{
 		Debug::exOutputLine(23);
 	}
+
+
 
 }
 
