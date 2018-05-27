@@ -1,46 +1,26 @@
-//
-// * ENGINE-X
-// * SAMPLE GAME
-//
-// + Main.cpp
-// entry point
-//
+#include "SDL.h"
+#include "Engine\Public\Engine.h"
+#include "Engine\Public\Core\Types\Color.h"
+#include "Engine\Public\Core\Types\Vector2.h"
+#include "Game\Public\MissileCommandGame.h"
 
-#include "Game/Private/Game.h"
-#include "Engine/Public/EngineInterface.h"
-
-#include <windows.h>
-
-//-----------------------------------------------------------------
-//-----------------------------------------------------------------
-
-//-----------------------------------------------------------------
-//-----------------------------------------------------------------
-
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+int main(int argc, char* args[])
 {
-	// never allow two instances
-	if (hPrevInstance)
+	Engine* engine = new Engine();
+
+	MissileCommandGame game;
+
+	if (engine->Init(&game, "AlfiEngine", 800, 600) != 0)
 	{
-		return 0;
+		// SDL failed to initialize
+		return 1;
 	}
+	
+	engine->Run(&game);
 
-	// check version
-	if (AccessEngineVersion() != kEngineVersion)
-	{
-		return 0;
-	}
+	engine->Quit(&game);
 
-	// find the engine
-	exEngineInterface* pEngine = AccessEngine();
-
-	if (pEngine == nullptr)
-	{
-		return 0;
-	}
-
-	// tell it to run
-	pEngine->Run(MyGame::Instance());
+	delete engine;
 
 	return 0;
 }

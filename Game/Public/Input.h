@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Singleton.h"
-#include "Game\Public\Vector2.h"
+#include "Engine\Public\Core\Types\Vector2.h"
 
 enum class MouseButton
 {

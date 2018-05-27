@@ -2,8 +2,11 @@
 #include "..\Public\GameObject.h"
 #include "Game\Public\GameObjectHandle.h"
 #include "Game\Public\COGPhysics.h"
+#include "Engine\Public\Engine.h"
+#include "Game\Public\COGLineRenderer.h"
+#include "Game\Public\COGBattery.h"
 
-World::World(exEngineInterface* pEngine)
+World::World(Engine* pEngine)
 {
 	mEngine = pEngine;
 }
@@ -32,11 +35,21 @@ void World::Destroy()
 	mHandles.clear();
 }
 
-void World::Update(float fDeltaT)
+void World::Update()
 {
 	for (COGPhysics* physics : COGPhysics::mPhysicsComponents)
 	{
-		physics->Update(fDeltaT);
+		physics->Update();
+	}
+
+	for (COGLineRenderer* lines : COGLineRenderer::mLRComponents)
+	{
+		lines->Draw();
+	}
+
+	for (COGBattery* bat : COGBattery::mBatComponents)
+	{
+		bat->ListenForCharge();
 	}
 }
 
@@ -45,7 +58,7 @@ void World::Add(GameObjectHandle pHandle)
 	mHandles.push_back(pHandle);
 }
 
-exEngineInterface * World::Engine() const
+Engine* World::GetEngine() const
 {
 	return mEngine;
 }

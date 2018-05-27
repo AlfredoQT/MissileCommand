@@ -1,3 +1,4 @@
-# MissileCommand
-A simple Missile Command game written in C++
-Special thanks to James Mansfield for providing a simple game engine interface to draw stuff
+# Missile Command
+
+Simplified version of Atari's Missile Command, written in C++ following 
+a component based architecture.
