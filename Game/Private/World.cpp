@@ -11,17 +11,6 @@ World::World(Engine* pEngine)
 	mEngine = pEngine;
 }
 
-void World::Initialize()
-{
-	for (GameObjectHandle handle : mHandles)
-	{
-		if (handle.IsValid())
-		{
-			handle.Get()->Initialize();
-		}
-	}
-}
-
 void World::Destroy()
 {
 	for (GameObjectHandle handle : mHandles)

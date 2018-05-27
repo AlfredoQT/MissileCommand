@@ -5,9 +5,13 @@
 #include "Engine\Public\Core\Types\Vector2.h"
 #include <vector>
 
+class GameObject;
+
 class COGLineRenderer : public Component
 {
 public:
+
+	COGLineRenderer(GameObject* pGO);
 
 	static std::vector<COGLineRenderer*> mLRComponents;
 

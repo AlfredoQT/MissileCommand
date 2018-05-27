@@ -111,6 +111,9 @@
     <ClCompile Include="Game\Private\COGMissile.cpp">
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Private\COGGameManager.cpp">
+      <Filter>Source Files\Game\Private</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Public\Engine.h">
@@ -192,6 +195,9 @@
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
     <ClInclude Include="Game\Public\COGMissile.h">
+      <Filter>Source Files\Game\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Public\COGGameManager.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
   </ItemGroup>

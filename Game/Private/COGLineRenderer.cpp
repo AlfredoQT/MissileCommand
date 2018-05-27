@@ -5,6 +5,11 @@
 
 std::vector<COGLineRenderer*> COGLineRenderer::mLRComponents;
 
+COGLineRenderer::COGLineRenderer(GameObject * pGO)
+	: Component(pGO)
+{
+}
+
 void COGLineRenderer::Initialize()
 {
 	AddToComponentVector(mLRComponents);

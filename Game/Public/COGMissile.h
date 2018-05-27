@@ -5,12 +5,15 @@
 #include "Engine\Public\Core\Types\Color.h"
 #include <vector>
 
+class GameObject;
+class COGPhysics;
 class COGLineRenderer;
-class COGTransform;
 
 class COGMissile : public Component
 {
 public:
+
+	COGMissile(GameObject* pGO);
 
 	static std::vector<COGMissile*> mMisComponents;
 
@@ -19,20 +22,25 @@ public:
 
 	void Update();
 
-	void Launch(const Vector2& pTarget);
+	void Launch(const Vector2& pTarget, const float& pSpeed);
+
+	void SetColor(const Color& pColor);
+
+	bool Launched() const;
 
 private:
 
 	void DrawIdle();
 
-	COGLineRenderer * mLR;
-
-	COGTransform* mTransform;
+	COGPhysics* mPhysics;
+	COGLineRenderer* mLR;
 
 	bool mLaunched;
 
 	Vector2 mTarget;
 
 	Color mColor;
+
+	float mSpeed;
 
 };

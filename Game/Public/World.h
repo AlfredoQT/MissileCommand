@@ -11,8 +11,6 @@ class World
 public:
 
 	World(Engine* pEngine);
-	
-	void Initialize();
 
 	void Destroy();
 

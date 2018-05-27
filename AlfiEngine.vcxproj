@@ -138,6 +138,7 @@
     <ClCompile Include="Engine\Private\Engine.cpp" />
     <ClCompile Include="Engine\Private\Utils\Debug.cpp" />
     <ClCompile Include="Game\Private\COGBattery.cpp" />
+    <ClCompile Include="Game\Private\COGGameManager.cpp" />
     <ClCompile Include="Game\Private\COGLineRenderer.cpp" />
     <ClCompile Include="Game\Private\COGMissile.cpp" />
     <ClCompile Include="Game\Private\COGPhysics.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Engine\Public\Engine.h" />
     <ClInclude Include="Engine\Public\Utils\Debug.h" />
     <ClInclude Include="Game\Public\COGBattery.h" />
+    <ClInclude Include="Game\Public\COGGameManager.h" />
     <ClInclude Include="Game\Public\COGLineRenderer.h" />
     <ClInclude Include="Game\Public\COGMissile.h" />
     <ClInclude Include="Game\Public\COGPhysics.h" />
