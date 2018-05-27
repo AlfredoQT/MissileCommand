@@ -18,6 +18,8 @@ public:
 
 	void Add(GameObjectHandle pHandle);
 
+	std::vector<GameObjectHandle> GetHandles();
+
 	Engine* GetEngine() const;
 
 private:

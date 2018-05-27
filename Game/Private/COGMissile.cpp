@@ -32,10 +32,13 @@ void COGMissile::Update()
 	if (!mLaunched)
 	{
 		DrawIdle();
+		return;
 	}
+	// Set the end position of the line renderer
+	mLR->SetPoint(1, mTrans->GetPosition());
 }
 
-void COGMissile::Launch(const Vector2 & pTarget, const float& pSpeed)
+void COGMissile::Launch(Vector2 pTarget, const float& pSpeed)
 {
 	mLaunched = true;
 	mTarget = pTarget;

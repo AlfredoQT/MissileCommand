@@ -23,7 +23,7 @@ public:
 
 	void Update();
 
-	void Launch(const Vector2& pTarget, const float& pSpeed);
+	void Launch(Vector2 pTarget, const float& pSpeed);
 
 	void SetColor(const Color& pColor);
 

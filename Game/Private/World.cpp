@@ -47,6 +47,11 @@ void World::Add(GameObjectHandle pHandle)
 	mHandles.push_back(pHandle);
 }
 
+std::vector<GameObjectHandle> World::GetHandles()
+{
+	return mHandles;
+}
+
 Engine* World::GetEngine() const
 {
 	return mEngine;
