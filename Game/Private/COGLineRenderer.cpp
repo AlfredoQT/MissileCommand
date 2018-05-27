@@ -34,3 +34,19 @@ void COGLineRenderer::SetColor(const Color & pColor)
 {
 	mColor = pColor;
 }
+
+void COGLineRenderer::AddPoint(const Vector2 & pPoint)
+{
+	mPoints.push_back(pPoint);
+}
+
+void COGLineRenderer::SetPoint(int pIndex, const Vector2 & pPoint)
+{
+	Vector2& point = mPoints.at(pIndex);
+	point = pPoint;
+}
+
+std::vector<Vector2> COGLineRenderer::GetPoints()
+{
+	return mPoints;
+}

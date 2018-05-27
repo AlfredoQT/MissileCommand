@@ -18,8 +18,8 @@ void COGMissile::Initialize()
 	mLR = mGO->FindComponent<COGLineRenderer>();
 	mPhysics = mGO->FindComponent<COGPhysics>();
 	mTrans = mGO->FindComponent<COGTransform>();
-	AddToComponentVector(mMisComponents);
 	mLaunched = false;
+	AddToComponentVector(mMisComponents);
 }
 
 void COGMissile::Destroy()
@@ -40,6 +40,13 @@ void COGMissile::Launch(const Vector2 & pTarget, const float& pSpeed)
 	mLaunched = true;
 	mTarget = pTarget;
 	mSpeed = pSpeed;
+
+	// Add the points to the line renderer
+	mLR->AddPoint(mTrans->GetPosition());
+	mLR->AddPoint(mTrans->GetPosition());
+
+	// Set the velocity
+	mPhysics->SetVelocity(pTarget - mTrans->GetPosition().Normalized() * pSpeed);
 }
 
 void COGMissile::SetColor(const Color & pColor)

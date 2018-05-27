@@ -19,6 +19,9 @@ public:
 
 	virtual void Destroy() override;
 
+	Vector2 GetVelocity() const;
+	void SetVelocity(const Vector2& pVelocity);
+
 	void Update();
 
 private:

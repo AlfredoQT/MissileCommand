@@ -21,6 +21,16 @@ void COGPhysics::Destroy()
 	RemoveFromComponentVector(mPhysicsComponents);
 }
 
+Vector2 COGPhysics::GetVelocity() const
+{
+	return mVelocity;
+}
+
+void COGPhysics::SetVelocity(const Vector2 & pVelocity)
+{
+	mVelocity = pVelocity;
+}
+
 void COGPhysics::Update()
 {
 	// Update position

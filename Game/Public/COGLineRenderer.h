@@ -22,6 +22,12 @@ public:
 
 	void SetColor(const Color& pColor);
 
+	void AddPoint(const Vector2& pPoint);
+
+	void SetPoint(int pIndex, const Vector2& pPoint);
+
+	std::vector<Vector2> GetPoints();
+
 private:
 
 	std::vector<Vector2> mPoints;
