@@ -1,5 +1,36 @@
+# Created by https://www.gitignore.io/api/c++,visualstudio
 
-# Created by https://www.gitignore.io/api/visualstudio
+### C++ ###
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Executables
+*.exe
+*.out
+*.app
 
 ### VisualStudio ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -55,8 +86,6 @@ artifacts/
 *_i.h
 *.ilk
 *.meta
-*.obj
-*.pch
 *.pdb
 *.pgc
 *.pgd
@@ -295,5 +324,11 @@ __pycache__/
 # By default, sensitive information, such as encrypted password
 # should be stored in the .pubxml.user file.
 
+# End of https://www.gitignore.io/api/c++,visualstudio
 
-# End of https://www.gitignore.io/api/visualstudio
+### Custom ###
+
+OutGame/
+*.idb
+*.tlog
+*.lastbuildstate

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Singleton.h"
-#include "Engine/Public/SDL.h"
+#include "SDL.h"
 
 class InputManager : public Singleton<InputManager>
 {

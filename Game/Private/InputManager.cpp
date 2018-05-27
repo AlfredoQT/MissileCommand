@@ -1,7 +1,6 @@
 #include "Game\Public\InputManager.h"
 #include "Game\Public\Input.h"
-#include "Game\Public\Vector2.h"
-#include "Game\Public\Debug.h"
+#include "Engine\Public\Core\Types\Vector2.h"
 
 // Set singleton
 InputManager* Singleton<InputManager>::mSingleton = nullptr;

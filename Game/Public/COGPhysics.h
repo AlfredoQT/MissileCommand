@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Component.h"
-#include "Vector2.h"
+#include "Engine\Public\Core\Types\Vector2.h"
 #include <vector>
 
 class GameObject;
@@ -19,7 +19,7 @@ public:
 
 	virtual void Destroy() override;
 
-	void Update(float fDeltaT);
+	void Update();
 
 private:
 

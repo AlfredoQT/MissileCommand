@@ -3,7 +3,6 @@
 #include "..\Public\Component.h"
 #include <vector>
 #include <typeinfo>
-#include "Debug.h"
 
 class World;
 class GameObjectHandle;

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Vector2.h"
+#include "Engine\Public\Core\Types\Vector2.h"
 #include "Component.h"
 
 class GameObject;
