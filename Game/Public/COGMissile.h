@@ -8,6 +8,7 @@
 class GameObject;
 class COGPhysics;
 class COGLineRenderer;
+class COGTransform;
 
 class COGMissile : public Component
 {
@@ -34,6 +35,7 @@ private:
 
 	COGPhysics* mPhysics;
 	COGLineRenderer* mLR;
+	COGTransform* mTrans;
 
 	bool mLaunched;
 

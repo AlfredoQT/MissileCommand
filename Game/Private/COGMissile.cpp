@@ -4,6 +4,7 @@
 #include "Game\Public\World.h"
 #include "Engine\Public\Engine.h"
 #include "Game\Public\COGPhysics.h"
+#include "Game\Public\COGTransform.h"
 
 std::vector<COGMissile*> COGMissile::mMisComponents;
 
@@ -16,6 +17,7 @@ void COGMissile::Initialize()
 {
 	mLR = mGO->FindComponent<COGLineRenderer>();
 	mPhysics = mGO->FindComponent<COGPhysics>();
+	mTrans = mGO->FindComponent<COGTransform>();
 	AddToComponentVector(mMisComponents);
 	mLaunched = false;
 }
@@ -53,4 +55,8 @@ bool COGMissile::Launched() const
 
 void COGMissile::DrawIdle()
 {
+	// Kind of like an inverted y
+	mGO->GetWorld()->GetEngine()->DrawLine(mTrans->GetPosition(), Vector2(mTrans->GetPosition().x, mTrans->GetPosition().y - 4), mColor);
+	mGO->GetWorld()->GetEngine()->DrawLine(mTrans->GetPosition(), Vector2(mTrans->GetPosition().x - 3, mTrans->GetPosition().y + 4), mColor);
+	mGO->GetWorld()->GetEngine()->DrawLine(mTrans->GetPosition(), Vector2(mTrans->GetPosition().x + 3, mTrans->GetPosition().y + 4), mColor);
 }
