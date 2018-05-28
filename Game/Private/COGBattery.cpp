@@ -1,5 +1,9 @@
 #include "..\Public\COGBattery.h"
 #include "Game\Public\COGMissile.h"
+#include "Game\Public\GameObjectHandle.h"
+#include "Game\Public\GameObject.h"
+#include "Game\Public\GameObjectFactory.h"
+#include "Game\Public\World.h"
 
 std::vector<COGBattery*> COGBattery::mBatComponents;
 
@@ -7,10 +11,19 @@ void COGBattery::ListenForCharge()
 {
 	if (Input::Instance()->IsKeyPressed(mShootInput))
 	{
-		if (mMissiles.size() > 0)
+		COGMissile* missile = FindMissileInHandles();
+		// Launch if it's not been launched
+		if (missile != nullptr)
 		{
+			GameObjectFactory::Instance()->CreateFriendlyTarget(mGO->GetWorld(), Input::Instance()->GetMousePosition());
+			missile->Launch(Input::Instance()->GetMousePosition(), 50.0f);
 		}
 	}
+}
+
+COGBattery::COGBattery(GameObject * pGO)
+	: Component(pGO)
+{
 }
 
 void COGBattery::Initialize()
@@ -40,4 +53,27 @@ void COGBattery::SetControl(BatteryControl pControl)
 	default:
 		break;
 	}
+}
+
+void COGBattery::AddMissile(GameObjectHandle pHandle)
+{
+	mMissiles.push_back(pHandle);
+}
+
+COGMissile* COGBattery::FindMissileInHandles()
+{
+	for (std::size_t i = 0; i < mMissiles.size(); ++i)
+	{
+		// This shit is so powerful
+		if (mMissiles[i].IsValid())
+		{
+			COGMissile* missile = mMissiles[i].Get()->FindComponent<COGMissile>();
+			// Found
+			if (missile != nullptr && !missile->Launched())
+			{
+				return missile;
+			}
+		}
+	}
+	return nullptr;
 }

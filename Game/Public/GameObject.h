@@ -3,6 +3,7 @@
 #include "..\Public\Component.h"
 #include <vector>
 #include <typeinfo>
+#include <string>
 
 class World;
 class GameObjectHandle;
@@ -42,11 +43,19 @@ public:
 
 	GameObjectHandle GetHandle() const;
 
+	std::string GetTag() const;
+
+	void SetTag(const std::string& pTag);
+
+	std::vector<Component*> GetComponents() const;
+
 private:
 	std::vector<Component*> mComponents;
 
 	World* mWorld;
 
 	std::size_t mHash;
+
+	std::string mTag;
 
 };

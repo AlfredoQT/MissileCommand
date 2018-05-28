@@ -14,6 +14,10 @@ void Component::Destroy()
 {
 }
 
+void Component::OnCollision(COGCollider * pOther)
+{
+}
+
 GameObject * Component::GetOwner() const
 {
 	return mGO;

@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-class GameObject;
+class COGGameManager;
 class GameObjectHandle;
 class Engine;
 
@@ -11,8 +11,6 @@ class World
 public:
 
 	World(Engine* pEngine);
-	
-	void Initialize();
 
 	void Destroy();
 
@@ -20,12 +18,23 @@ public:
 
 	void Add(GameObjectHandle pHandle);
 
+	void Delete(GameObjectHandle pHandle);
+
+	void FreeMemory();
+
+	std::vector<GameObjectHandle> GetHandles();
+
 	Engine* GetEngine() const;
+
+	void SetGameManager(COGGameManager* pGameManager);
 
 private:
 
 	std::vector<GameObjectHandle> mHandles;
+	std::vector<GameObjectHandle> mHandlesToDelete;
 
 	Engine* mEngine;
+
+	COGGameManager* mGameManager;
 
 };
