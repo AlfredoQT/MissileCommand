@@ -43,4 +43,10 @@ struct FMath
 		return atan2(y, x);
 	}
 
+	template<class T>
+	static T Abs(const T x)
+	{
+		return x > 0 ? x : -x;
+	}
+
 };

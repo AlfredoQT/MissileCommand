@@ -9,6 +9,8 @@
 #include "Game\Public\COGMissile.h"
 #include "Game\Public\COGShape.h"
 #include "Game\Public\COGGameManager.h"
+#include "Game\Public\COGLifeSpan.h"
+#include "Game\Public\COGExplosion.h"
 
 World::World(Engine* pEngine)
 {
@@ -35,10 +37,10 @@ void World::Update()
 	{
 		physics->Update();
 	}
-	
-	for (COGCollider* collider : COGCollider::mColliderComponents)
+
+	if (COGGameManager::mGameManagerComponent != nullptr)
 	{
-		collider->CheckCollision();
+		mGameManager->Update();
 	}
 
 	for (COGLineRenderer* lines : COGLineRenderer::mLRComponents)
@@ -61,15 +63,41 @@ void World::Update()
 		bat->ListenForCharge();
 	}
 
-	if (COGGameManager::mGameManagerComponent != nullptr)
+	for (COGLifeSpan* lF : COGLifeSpan::mLSComponents)
 	{
-		mGameManager->Update();
+		lF->Update();
+	}
+
+	for (COGExplosion* exp : COGExplosion::mExpComponents)
+	{
+		exp->Update();
+	}
+
+	for (COGCollider* collider : COGCollider::mColliderComponents)
+	{
+		collider->CheckCollision();
 	}
 }
 
 void World::Add(GameObjectHandle pHandle)
 {
 	mHandles.push_back(pHandle);
+}
+
+void World::Delete(GameObjectHandle pHandle)
+{
+	mHandlesToDelete.push_back(pHandle);
+}
+
+void World::FreeMemory()
+{
+	for (std::size_t i = 0; i < mHandlesToDelete.size(); ++i)
+	{
+		if (mHandlesToDelete[i].IsValid())
+		{
+			delete mHandlesToDelete[i].Get();
+		}
+	}
 }
 
 std::vector<GameObjectHandle> World::GetHandles()

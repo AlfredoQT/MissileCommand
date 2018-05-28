@@ -22,6 +22,8 @@ void MissileCommandGame::Run()
 	mWorld->Update();
 
 	InputManager::Instance()->LateUpdate();
+
+	mWorld->FreeMemory();
 }
 
 void MissileCommandGame::End()

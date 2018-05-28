@@ -11,6 +11,7 @@ std::vector<COGCollider*> COGCollider::mColliderComponents;
 
 COGCollider::COGCollider(GameObject * pGO)
 	: Component(pGO)
+	, mRadius(0.0f)
 {
 }
 
@@ -42,7 +43,7 @@ void COGCollider::CheckCollision()
 			if (gameObject != mGO)
 			{
 				COGCollider* other = gameObject->FindComponent<COGCollider>();
-				if (other != nullptr && handles[i].IsValid() && myHandle.IsValid())
+				if (other != nullptr && myHandle.IsValid())
 				{
 					Vector2 toOther = other->GetTransform()->GetPosition() - mTrans->GetPosition();
 					bool colliding = toOther.SizeSquared() <= (mRadius + other->GetRadius()) * (mRadius + other->GetRadius());

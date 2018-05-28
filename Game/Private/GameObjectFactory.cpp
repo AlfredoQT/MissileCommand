@@ -15,6 +15,8 @@
 #include "Game\Public\COGCollider.h"
 #include "Game\Public\Random.h"
 #include "Game\Public\COGTargetShape.h"
+#include "Game\Public\COGLifeSpan.h"
+#include "Game\Public\COGExplosion.h"
 #include <string>
 
 // Singleton
@@ -111,6 +113,7 @@ GameObject * GameObjectFactory::CreateBattery(World * pWorld, const Vector2 & pP
 	for (int i = 0; i < 10; ++i)
 	{
 		GameObject* missile = CreateMissile(pWorld, missilePos[i]);
+		missile->SetTag("FM");
 
 		// Set the color of the missile component
 		COGMissile* cogMissile = missile->FindComponent<COGMissile>();
@@ -151,6 +154,30 @@ GameObject * GameObjectFactory::CreateFriendlyTarget(World * pWorld, const Vecto
 
 	fT->Initialize();
 
+	return fT;
+}
+
+GameObject * GameObjectFactory::CreateExplosion(World * pWorld, const Vector2 & pPosition)
+{
+	GameObject* fT = new GameObject(pWorld, std::hash<std::string>{}("Exp-" + (++mNextExplosion) + std::to_string(Random::Instance()->NextFloat())));
+	COGTransform* transform = new COGTransform(fT);
+	transform->SetPosition(pPosition);
+	fT->AddComponent(transform);
+
+	COGLifeSpan* lfC = new COGLifeSpan(fT);
+	lfC->SetTimeLeft(4.0f);
+
+	fT->AddComponent(lfC);
+
+	fT->AddComponent(new COGCollider(fT));
+
+	fT->AddComponent(new COGExplosion(fT));
+	
+	fT->AddComponent(new COGCircleShape(fT));
+
+	pWorld->Add(fT->GetHandle());
+
+	fT->Initialize();
 	return fT;
 }
 

@@ -7,6 +7,7 @@
 #include "Game\Public\COGTransform.h"
 #include "Game\Public\COGCollider.h"
 #include "Engine\Public\Utils\Debug.h"
+#include "Game\Public\GameObjectHandle.h"
 
 std::vector<COGMissile*> COGMissile::mMisComponents;
 
@@ -69,8 +70,7 @@ void COGMissile::OnCollision(COGCollider * other)
 {
 	if (other->GetOwner()->GetTag().compare("FT") == 0)
 	{
-		Debug::OutputLine("Yei");
-		delete mGO;
+		mGO->GetWorld()->Delete(mGO->GetHandle());
 	}
 }
 

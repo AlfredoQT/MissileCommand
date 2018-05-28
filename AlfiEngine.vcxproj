@@ -141,7 +141,9 @@
     <ClCompile Include="Game\Private\COGBoxShape.cpp" />
     <ClCompile Include="Game\Private\COGCircleShape.cpp" />
     <ClCompile Include="Game\Private\COGCollider.cpp" />
+    <ClCompile Include="Game\Private\COGExplosion.cpp" />
     <ClCompile Include="Game\Private\COGGameManager.cpp" />
+    <ClCompile Include="Game\Private\COGLifeSpan.cpp" />
     <ClCompile Include="Game\Private\COGLineRenderer.cpp" />
     <ClCompile Include="Game\Private\COGMissile.cpp" />
     <ClCompile Include="Game\Private\COGPhysics.cpp" />
@@ -170,6 +172,8 @@
     <ClInclude Include="Engine\Public\Engine.h" />
     <ClInclude Include="Engine\Public\Utils\Debug.h" />
     <ClInclude Include="Game\Public\COGBattery.h" />
+    <ClInclude Include="Game\Public\COGExplosion.h" />
+    <ClInclude Include="Game\Public\COGLifeSpan.h" />
     <ClInclude Include="Game\Public\COGTargetShape.h" />
     <ClInclude Include="Game\Public\COGBoxShape.h" />
     <ClInclude Include="Game\Public\COGCircleShape.h" />

@@ -18,6 +18,10 @@ public:
 
 	void Add(GameObjectHandle pHandle);
 
+	void Delete(GameObjectHandle pHandle);
+
+	void FreeMemory();
+
 	std::vector<GameObjectHandle> GetHandles();
 
 	Engine* GetEngine() const;
@@ -27,6 +31,7 @@ public:
 private:
 
 	std::vector<GameObjectHandle> mHandles;
+	std::vector<GameObjectHandle> mHandlesToDelete;
 
 	Engine* mEngine;
 

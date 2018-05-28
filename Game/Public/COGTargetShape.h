@@ -10,4 +10,10 @@ public:
 
 	virtual void Render() override;
 
+	virtual void OnCollision(COGCollider* other) override;
+
+private:
+
+	bool mGeneratedExplosion;
+
 };
