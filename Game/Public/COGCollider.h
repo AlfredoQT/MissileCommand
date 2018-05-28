@@ -4,6 +4,7 @@
 #include <vector>
 
 class GameObject;
+class COGTransform;
 
 // For now, just a circle collider
 class COGCollider : public Component
@@ -22,7 +23,11 @@ public:
 	float GetRadius();
 	void SetRadius(const float& pRadius);
 
+	const COGTransform* GetTransform() const;
+
 private:
 
 	float mRadius;
+
+	COGTransform* mTrans;
 };

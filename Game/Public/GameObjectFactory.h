@@ -16,6 +16,7 @@ public:
 	GameObject* CreateMissile(World* pWorld);
 	GameObject* CreateMissile(World* pWorld, const Vector2& pPosition);
 	GameObject* CreateBattery(World* pWorld, const Vector2& pPosition, BatteryControl control);
+	GameObject* CreateFriendlyTarget(World* pWorld, const Vector2& pPosition);
 	GameObject* CreateGameManager(World* pWorld);
 
 private:
@@ -24,4 +25,5 @@ private:
 	int mNextCity;
 	int mNextExplosion;
 	int mNextBattery;
+	int mNextFriendlyTarget;
 };

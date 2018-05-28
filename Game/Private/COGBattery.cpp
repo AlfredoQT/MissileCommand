@@ -2,6 +2,8 @@
 #include "Game\Public\COGMissile.h"
 #include "Game\Public\GameObjectHandle.h"
 #include "Game\Public\GameObject.h"
+#include "Game\Public\GameObjectFactory.h"
+#include "Game\Public\World.h"
 
 std::vector<COGBattery*> COGBattery::mBatComponents;
 
@@ -11,8 +13,9 @@ void COGBattery::ListenForCharge()
 	{
 		COGMissile* missile = FindMissileInHandles();
 		// Launch if it's not been launched
-		if (missile != nullptr && !missile->Launched())
+		if (missile != nullptr)
 		{
+			GameObjectFactory::Instance()->CreateFriendlyTarget(mGO->GetWorld(), Input::Instance()->GetMousePosition());
 			missile->Launch(Input::Instance()->GetMousePosition(), 50.0f);
 		}
 	}
@@ -59,14 +62,14 @@ void COGBattery::AddMissile(GameObjectHandle pHandle)
 
 COGMissile* COGBattery::FindMissileInHandles()
 {
-	for (int i = 0; i < mMissiles.size(); ++i)
+	for (std::size_t i = 0; i < mMissiles.size(); ++i)
 	{
 		// This shit is so powerful
 		if (mMissiles[i].IsValid())
 		{
 			COGMissile* missile = mMissiles[i].Get()->FindComponent<COGMissile>();
 			// Found
-			if (missile != nullptr)
+			if (missile != nullptr && !missile->Launched())
 			{
 				return missile;
 			}

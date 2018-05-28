@@ -29,6 +29,8 @@ public:
 
 	bool Launched() const;
 
+	virtual void OnCollision(COGCollider* other) override;
+
 private:
 
 	void DrawIdle();

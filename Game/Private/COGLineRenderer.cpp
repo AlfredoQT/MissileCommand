@@ -2,6 +2,7 @@
 #include "Game\Public\GameObject.h"
 #include "Game\Public\World.h"
 #include "Engine\Public\Engine.h"
+#include "Engine\Public\Utils\Debug.h"
 
 std::vector<COGLineRenderer*> COGLineRenderer::mLRComponents;
 
@@ -23,8 +24,10 @@ void COGLineRenderer::Destroy()
 
 void COGLineRenderer::Draw() const
 {
+	int y = static_cast<int>(mPoints.size() - 1);
+
 	// Draw every line
-	for (int i = 0; i < mPoints.size() - 1; ++i)
+	for (int i = 0; i < y; ++i)
 	{
 		mGO->GetWorld()->GetEngine()->DrawLine(mPoints[i], mPoints[i + 1], mColor);
 	}

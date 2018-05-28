@@ -12,6 +12,9 @@
 #include "Game\Public\COGBoxShape.h"
 #include "Game\Public\COGCircleShape.h"
 #include "Game\Public\COGGameManager.h"
+#include "Game\Public\COGCollider.h"
+#include "Game\Public\Random.h"
+#include "Game\Public\COGTargetShape.h"
 #include <string>
 
 // Singleton
@@ -22,16 +25,22 @@ GameObjectFactory::GameObjectFactory()
 	, mNextCity(-1)
 	, mNextExplosion(-1)
 	, mNextBattery(-1)
+	, mNextFriendlyTarget(-1)
 {
 }
 
 GameObject* GameObjectFactory::CreateMissile(World* pWorld)
 {
-	GameObject* missile = new GameObject(pWorld, std::hash<std::string>{}("Missile-" + (++mNextMissile)));
+	GameObject* missile = new GameObject(pWorld, std::hash<std::string>{}("Mi-" + (++mNextMissile) + std::to_string(Random::Instance()->NextFloat())));
 	missile->AddComponent(new COGTransform(missile));
 	missile->AddComponent(new COGPhysics(missile));
 	missile->AddComponent(new COGLineRenderer(missile));
 	missile->AddComponent(new COGMissile(missile));
+
+	COGCollider* collider = new COGCollider(missile);
+	collider->SetRadius(7.0f);
+
+	missile->AddComponent(collider);
 
 	pWorld->Add(missile->GetHandle());
 
@@ -42,7 +51,7 @@ GameObject* GameObjectFactory::CreateMissile(World* pWorld)
 
 GameObject* GameObjectFactory::CreateMissile(World* pWorld, const Vector2& pPosition)
 {
-	GameObject* missile = new GameObject(pWorld, std::hash<std::string>{}("Missile-" + (++mNextMissile)));
+	GameObject* missile = new GameObject(pWorld, std::hash<std::string>{}("Mi-" + (++mNextMissile) + std::to_string(Random::Instance()->NextFloat())));
 
 	COGTransform* transform = new COGTransform(missile);
 	transform->SetPosition(pPosition);
@@ -50,6 +59,12 @@ GameObject* GameObjectFactory::CreateMissile(World* pWorld, const Vector2& pPosi
 	missile->AddComponent(transform);
 	missile->AddComponent(new COGPhysics(missile));
 	missile->AddComponent(new COGMissile(missile));
+	missile->AddComponent(new COGLineRenderer(missile));
+
+	COGCollider* collider = new COGCollider(missile);
+	collider->SetRadius(7.0f);
+
+	missile->AddComponent(collider);
 
 	pWorld->Add(missile->GetHandle());
 
@@ -60,7 +75,7 @@ GameObject* GameObjectFactory::CreateMissile(World* pWorld, const Vector2& pPosi
 
 GameObject * GameObjectFactory::CreateBattery(World * pWorld, const Vector2 & pPosition, BatteryControl control)
 {
-	GameObject* battery = new GameObject(pWorld, std::hash<std::string>{}("Battery-" + (++mNextBattery)));
+	GameObject* battery = new GameObject(pWorld, std::hash<std::string>{}("Ba-" + (++mNextBattery) + std::to_string(Random::Instance()->NextFloat())));
 
 	COGTransform* transform = new COGTransform(battery);
 	transform->SetPosition(pPosition);
@@ -96,7 +111,6 @@ GameObject * GameObjectFactory::CreateBattery(World * pWorld, const Vector2 & pP
 	for (int i = 0; i < 10; ++i)
 	{
 		GameObject* missile = CreateMissile(pWorld, missilePos[i]);
-		missile->SetTag("F");
 
 		// Set the color of the missile component
 		COGMissile* cogMissile = missile->FindComponent<COGMissile>();
@@ -115,6 +129,29 @@ GameObject * GameObjectFactory::CreateBattery(World * pWorld, const Vector2 & pP
 	battery->Initialize();
 
 	return battery;
+}
+
+GameObject * GameObjectFactory::CreateFriendlyTarget(World * pWorld, const Vector2 & pPosition)
+{
+	GameObject* fT = new GameObject(pWorld, std::hash<std::string>{}("Ft-" + (++mNextFriendlyTarget) + std::to_string(Random::Instance()->NextFloat())));
+	COGTransform* transform = new COGTransform(fT);
+	transform->SetPosition(pPosition);
+	fT->AddComponent(transform);
+
+	COGCollider* collider = new COGCollider(fT);
+	collider->SetRadius(7.0f);
+
+	fT->AddComponent(new COGTargetShape(fT));
+
+	fT->AddComponent(collider);
+
+	fT->SetTag("FT");
+
+	pWorld->Add(fT->GetHandle());
+
+	fT->Initialize();
+
+	return fT;
 }
 
 GameObject* GameObjectFactory::CreateGameManager(World* pWorld)

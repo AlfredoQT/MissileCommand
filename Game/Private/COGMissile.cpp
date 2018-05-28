@@ -5,6 +5,8 @@
 #include "Engine\Public\Engine.h"
 #include "Game\Public\COGPhysics.h"
 #include "Game\Public\COGTransform.h"
+#include "Game\Public\COGCollider.h"
+#include "Engine\Public\Utils\Debug.h"
 
 std::vector<COGMissile*> COGMissile::mMisComponents;
 
@@ -49,7 +51,7 @@ void COGMissile::Launch(Vector2 pTarget, const float& pSpeed)
 	mLR->AddPoint(mTrans->GetPosition());
 
 	// Set the velocity
-	mPhysics->SetVelocity(pTarget - mTrans->GetPosition().Normalized() * pSpeed);
+	mPhysics->SetVelocity((pTarget - mTrans->GetPosition()).Normalized() * pSpeed);
 }
 
 void COGMissile::SetColor(const Color & pColor)
@@ -61,6 +63,15 @@ void COGMissile::SetColor(const Color & pColor)
 bool COGMissile::Launched() const
 {
 	return mLaunched;
+}
+
+void COGMissile::OnCollision(COGCollider * other)
+{
+	if (other->GetOwner()->GetTag().compare("FT") == 0)
+	{
+		Debug::OutputLine("Yei");
+		delete mGO;
+	}
 }
 
 void COGMissile::DrawIdle()

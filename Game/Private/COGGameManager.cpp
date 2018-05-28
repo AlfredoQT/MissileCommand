@@ -21,6 +21,10 @@ COGGameManager::COGGameManager(GameObject * pGO)
 
 void COGGameManager::Initialize()
 {
+	// The batteries
+	GameObjectFactory::Instance()->CreateBattery(mGO->GetWorld(), Vector2(45.0f, 600.0f - 60.0f), BatteryControl::ONE);
+	GameObjectFactory::Instance()->CreateBattery(mGO->GetWorld(), Vector2(400.0f, 600.0f - 60.0f), BatteryControl::TWO);
+	GameObjectFactory::Instance()->CreateBattery(mGO->GetWorld(), Vector2(755.0f, 600.0f - 60.0f), BatteryControl::THREE);
 }
 
 void COGGameManager::Update()

@@ -110,6 +110,17 @@ void Engine::DrawFillCircle(const Vector2 & pPosition, const float & pRadius, co
 
 }
 
+void Engine::DrawCircle(const Vector2 & pPosition, const float & pRadius, const Color & pColor)
+{
+	SDL_SetRenderDrawColor(mRenderer, pColor.R, pColor.G, pColor.B, pColor.A);
+
+	// TODO: Replace this with mid point algorithm
+
+	// I don't want to use tha anti aliased version because of performance
+	circleRGBA(mRenderer, static_cast<uint16_t>(pPosition.x), static_cast<uint16_t>(pPosition.y), static_cast<uint16_t>(pRadius), pColor.R, pColor.G, pColor.B, pColor.A);
+
+}
+
 void Engine::DrawRect(const Vector2 & pTopLeft, const Vector2 & pBotRight, const Color & pColor)
 {
 	SDL_SetRenderDrawColor(mRenderer, pColor.R, pColor.G, pColor.B, pColor.A);
