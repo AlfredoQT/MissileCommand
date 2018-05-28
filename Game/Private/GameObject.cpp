@@ -8,6 +8,8 @@ GameObject::GameObject(World* pWorld, std::size_t pHash)
 	mWorld = pWorld;
 	mHash = pHash;
 
+	mTag = "";
+
 	GameObjectInventory::Instance()->Register(this);
 }
 
@@ -49,4 +51,19 @@ std::size_t GameObject::GetHash()
 GameObjectHandle GameObject::GetHandle() const
 {
 	return GameObjectHandle(mHash);
+}
+
+std::string GameObject::GetTag() const
+{
+	return mTag;
+}
+
+void GameObject::SetTag(const std::string& pTag)
+{
+	mTag = pTag;
+}
+
+std::vector<Component*> GameObject::GetComponents() const
+{
+	return mComponents;
 }

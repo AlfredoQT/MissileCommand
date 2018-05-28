@@ -18,10 +18,11 @@ public:
 	virtual void Destroy() override;
 
 	virtual void CheckCollision();
-}
+
+	float GetRadius();
+	void SetRadius(const float& pRadius);
 
 private:
 
 	float mRadius;
-
 };

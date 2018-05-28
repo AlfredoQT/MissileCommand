@@ -16,6 +16,7 @@ public:
 	GameObject* CreateMissile(World* pWorld);
 	GameObject* CreateMissile(World* pWorld, const Vector2& pPosition);
 	GameObject* CreateBattery(World* pWorld, const Vector2& pPosition, BatteryControl control);
+	GameObject* CreateGameManager(World* pWorld);
 
 private:
 

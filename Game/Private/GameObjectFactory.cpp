@@ -9,6 +9,9 @@
 #include "Engine\Public\Core\Types\Vector2.h"
 #include "Game\Public\COGMissile.h"
 #include "Engine\Public\Core\Types\Color.h"
+#include "Game\Public\COGBoxShape.h"
+#include "Game\Public\COGCircleShape.h"
+#include "Game\Public\COGGameManager.h"
 #include <string>
 
 // Singleton
@@ -69,6 +72,13 @@ GameObject * GameObjectFactory::CreateBattery(World * pWorld, const Vector2 & pP
 
 	battery->AddComponent(cogBattery);
 
+	COGBoxShape* cogBox = new COGBoxShape(battery);
+	cogBox->SetWidth(80.0f);
+	cogBox->SetHeight(44.0f);
+
+	battery->AddComponent(cogBox);
+
+
 	// The positions for the missiles
 	Vector2 missilePos[10];
 	missilePos[0] = Vector2(pPosition.x - 7, pPosition.y - 10);
@@ -86,6 +96,8 @@ GameObject * GameObjectFactory::CreateBattery(World * pWorld, const Vector2 & pP
 	for (int i = 0; i < 10; ++i)
 	{
 		GameObject* missile = CreateMissile(pWorld, missilePos[i]);
+		missile->SetTag("F");
+
 		// Set the color of the missile component
 		COGMissile* cogMissile = missile->FindComponent<COGMissile>();
 		if (cogMissile != nullptr)
@@ -103,4 +115,17 @@ GameObject * GameObjectFactory::CreateBattery(World * pWorld, const Vector2 & pP
 	battery->Initialize();
 
 	return battery;
+}
+
+GameObject* GameObjectFactory::CreateGameManager(World* pWorld)
+{
+	GameObject* gameManager = new GameObject(pWorld, std::hash<std::string>{}("Manager"));
+
+	gameManager->AddComponent(new COGGameManager(gameManager));
+
+	pWorld->Add(gameManager->GetHandle());
+
+	gameManager->Initialize();
+
+	return gameManager;
 }
